@@ -1,0 +1,20 @@
+- name: Instalando o Jenkins
+
+  hosts: automation
+  
+  tasks:
+  
+   - name: instalando dependencia
+     yum:
+      name: wget
+      state: present
+
+   - name: instalando o repositorio
+     shell: "rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key"
+     
+   - name: instalando o jenkins
+     yum:
+      name: jenkins
+      update_cache: yes  
+      
+

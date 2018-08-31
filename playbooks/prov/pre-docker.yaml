@@ -1,0 +1,21 @@
+- name: preparando o cenaario para o docker
+
+  hosts: docker
+  
+  tasks:
+   - name: instalando o python-pip
+     package:
+      name: 
+       - python-pip
+       - docker-ce
+      
+   - name: instalando o docker-py para gerenciar o docker com ansible
+     pip:
+      name: docker-py
+      
+   - name: criando o diretorio para o volume do docker
+     file:
+      path: /index
+      state: directory
+      
+
